@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/hazonlineapps/public_html/artan_new/
+    - /bin/cp -r * $DEPLOYPATH
