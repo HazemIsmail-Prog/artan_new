@@ -1,0 +1,15 @@
+a.nav-link{
+    padding: 8px !important;
+}
+
+.form-control{
+    box-shadow: none !important;
+}
+
+.active{
+    color: #303c54 !important;
+    background: #f8f9fa !important;
+}
+.active>.nav-icon{
+    color: #303c54 !important;
+}
