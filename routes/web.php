@@ -28,14 +28,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/mf',function(){
-    Artisan::call('migrate:fresh');
-    return redirect()->route('dashboard');
-});
-Route::get('/os',function(){
+Route::get('/mfs',function(){
     set_time_limit(60 * 2); //60 seconds * 2 = 2 minutes
-
-    Artisan::call('db:seed OrderSeeder');
+    Artisan::call('migrate:fresh --seed');
     return redirect()->route('dashboard');
 });
 
