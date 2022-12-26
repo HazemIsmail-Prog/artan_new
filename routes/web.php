@@ -33,6 +33,8 @@ Route::get('/mf',function(){
     return redirect()->route('dashboard');
 });
 Route::get('/os',function(){
+    set_time_limit(60 * 2); //60 seconds * 2 = 2 minutes
+
     Artisan::call('db:seed OrderSeeder');
     return redirect()->route('dashboard');
 });
