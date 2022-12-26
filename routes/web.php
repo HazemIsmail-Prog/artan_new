@@ -28,8 +28,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/mfs',function(){
-    Artisan::call('migrate:fresh --seed');
+Route::get('/mf',function(){
+    Artisan::call('migrate:fresh');
+    return redirect()->route('dashboard');
+});
+Route::get('/os',function(){
+    Artisan::call('db:seed OrderSeeder');
     return redirect()->route('dashboard');
 });
 
