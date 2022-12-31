@@ -43,12 +43,16 @@
                             </div>
                             <div class=" badge bg-secondary">{{ $payment->user->name }}</div>
                             <div class="text-end d-flex align-items-center gap-1">
-                                <button wire:click="showPaymentModal({{ $order }},{{ $payment }})" type="button" class="btn btn-sm text-dark" data-bs-toggle="modal" data-bs-target="#paymentModal">
+                                <button 
+                                    x-data="{}" 
+                                    x-on:click="window.livewire.emitTo('orders.payment-modal','show',{{ $order }},{{ $payment }})" 
+                                    class="btn btn-sm text-dark"
+                                >
                                     <svg style="width: 15px;height: 15px">
                                         <use
                                             xlink:href="{{ asset('theme/vendors/@coreui/icons/svg/free.svg#cil-pencil') }}">
                                         </use>
-                                    </svg>
+                                    </svg>     
                                 </button>
                                 <form class="d-inline" wire:submit.prevent="delete_payment({{ $payment }})">
                                     <button type="submit" class="btn btn-sm text-danger"
@@ -71,7 +75,11 @@
             {{-- Bottom Buttons --}}
             <div class=" d-flex">
                 @if (in_array(auth()->user()->type,['admin','user']))
-                    <button wire:click="showOrderModal({{ $order }})" type="button" class="btn btn-sm btn-dark rounded-0 flex-fill" data-bs-toggle="modal" data-bs-target="#formModal">
+                    <button 
+                        x-data="{}" 
+                        x-on:click="window.livewire.emitTo('orders.order-modal','show',{{ $order }})" 
+                        class="btn btn-sm btn-dark rounded-0 flex-fill"
+                    >
                         <svg style="width: 15px;height: 15px">
                             <use
                                 xlink:href="{{ asset('theme/vendors/@coreui/icons/svg/free.svg#cil-pencil') }}">
@@ -92,22 +100,16 @@
                     @endif
                 @endif
                 @if ($order->total_payments < $order->amount)
-                    <button wire:click="showPaymentModal({{ $order }})" type="button" class="btn btn-sm btn-success rounded-0 flex-fill" data-bs-toggle="modal" data-bs-target="#paymentModal">
+                    <button 
+                        x-data="{}" 
+                        x-on:click="window.livewire.emitTo('orders.payment-modal','show',{{ $order }})" 
+                        class="btn btn-sm btn-success rounded-0 flex-fill"
+                    >
                         Pay {{ $order->amount - $order->total_payments }}
-                        {{-- <svg style="width: 15px;height: 15px">
-                            <use
-                                xlink:href="{{ asset('theme/vendors/@coreui/icons/svg/free.svg#cil-cash') }}">
-                            </use>
-                        </svg> --}}
-                    </button> 
+                    </button>
                 @endif
             </div>
             {{-- Bottom Buttons --}}
-
         </div>
-
-
-
-
     </div>
 </div>

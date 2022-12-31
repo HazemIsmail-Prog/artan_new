@@ -21,6 +21,9 @@
 
     <link rel="stylesheet" href="{{ asset('custom/custom.css') }}">
 
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+
     @livewireStyles
 
 </head>

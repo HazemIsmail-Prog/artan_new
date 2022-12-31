@@ -1,13 +1,12 @@
 <div>
-    @include('livewire.orders._order-modal')
-    @include('livewire.orders._payment-modal')
+    @livewire('orders.order-modal')
+    @livewire('orders.payment-modal')
+
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <div>Orders</div>
             @if (in_array(auth()->user()->type,['admin','user']))
-                <button wire:click="showOrderModal()" type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#formModal">
-                    Add Order
-                </button>
+                <button x-data="{}" x-on:click="window.livewire.emitTo('orders.order-modal','show')" class="btn btn-dark btn-sm">Add Order</button>
             @endif
         </div>
         <div class="card-body">
