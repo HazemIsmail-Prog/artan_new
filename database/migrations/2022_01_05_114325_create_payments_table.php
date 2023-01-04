@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('order_id')->constrained('orders');
             $table->foreignId('user_id')->constrained('users');
             $table->string('type'); // Cash Or K-Net
-            $table->integer('amount');
+            $table->double('amount');
             $table->timestamps();
         });
     }

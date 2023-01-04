@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('c_mobile');
             $table->dateTime('order_datetime');
             $table->string('notes')->nullable();
-            $table->integer('amount');
+            $table->double('amount');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -10,7 +10,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="payment.amount">Amount</label>
-                            <input wire:model="payment.amount" autocomplete="off" type="number" id="payment.amount" min="1" max="{{ @$payment['max_amount'] }}"
+                            <input wire:model="payment.amount" autocomplete="off" type="number" id="payment.amount" step="0.001" min="1" max="{{ @$payment['max_amount'] }}"
                                 class="form-control @error('payment.amount') is-invalid @enderror">
                             @error('payment.amount')
                                 <span class="small text-danger">{{ $message }}</span>

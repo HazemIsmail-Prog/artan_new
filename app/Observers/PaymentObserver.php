@@ -101,7 +101,7 @@ class PaymentObserver
         $customr_receivable_account_id = 521008;
         $knet_account_id = 113002;
         $bank_charges_account_id = 424001;
-        $knet_ratio = 0.025;
+        $knet_ratio = 0.0025;
 
         switch ($payment->type) {
             case 'cash':
