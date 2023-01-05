@@ -71,15 +71,16 @@ class OrderIndex extends Component
                 });
             })
             ->when($this->paymentFilter == 'unpaid', function ($q) {
-                $q->doesntHave('payments');
-                $q->orWhereHas('payments', function ($query) {
-                    $query->selectRaw('sum(amount)')
-                        ->groupBy('order_id')
-                        ->havingRaw('sum(amount) < orders.amount');
+                $q->where(function ($q) {
+                    $q->doesntHave('payments');
+                    $q->orWhereHas('payments', function ($query) {
+                        $query->selectRaw('sum(amount)')
+                            ->groupBy('order_id')
+                            ->havingRaw('sum(amount) < orders.amount');
+                    });
                 });
             })
             ->paginate(6);
-        // dd($orders);
         return view('livewire.orders.order-index', ['orders' => $orders])->layout('layouts.livewire_app');
     }
 }
