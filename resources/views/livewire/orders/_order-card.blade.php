@@ -1,4 +1,4 @@
-<div class="card shadow-sm overflow-hidden" style="width: 400px">
+<div class="card shadow-sm overflow-hidden" style="width: 600px">
     <div class="card-body p-0">
 
         <div class=" d-flex flex-column h-100">

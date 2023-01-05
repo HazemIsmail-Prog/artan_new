@@ -42,7 +42,7 @@ class OrderObserver
         $voucher_details_data = [
             [
                 'account_id'        => $customr_receivable_account_id,
-                'narration'         => $order->c_name,
+                'narration'         => $order->c_mobile,
                 'debit'             => $order->amount,
                 'credit'            => 0,
             ],

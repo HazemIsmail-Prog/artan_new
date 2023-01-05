@@ -6,12 +6,17 @@ use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
 
 class Order extends Model
 {
     use HasFactory,SoftDeletes;
 
     protected $guarded = [];
+
+    protected $appends = ['total_payments'];
+
     protected $casts = [
         'order_datetime' => 'datetime:Y-m-d H:i'
     ];
