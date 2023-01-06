@@ -54,8 +54,10 @@ class OrderIndex extends Component
             ->with('payments.user')
             ->orderBy('order_datetime')
             ->when($this->search, function ($q) {
-                $q->where('c_name', 'like', '%' . $this->search . '%');
-                $q->orWhere('c_mobile', 'like', '%' . $this->search . '%');
+                $q->where(function($q){
+                    $q->where('c_name', 'like', '%' . $this->search . '%');
+                    $q->orWhere('c_mobile', 'like', '%' . $this->search . '%');
+                });
             })
             ->when($this->dateFilter == 'future', function ($q) {
                 $q->where('order_datetime', '>=', now());
