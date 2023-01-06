@@ -21,9 +21,9 @@
                     <tbody>
                         @foreach ($accounts->where('account_id',null) as $account)
                             <tr>
-                                <td>{{ $account->name }}</td>
-                                <td>{{ $account->usage ?? '' }}</td>
-                                <td class="text-end">
+                                <td nowrap>{{ $account->name }}</td>
+                                <td nowrap>{{ $account->usage ?? '' }}</td>
+                                <td nowrap class="text-end">
                                     <button wire:click="showAccountModal(null,{{ $account->id }})" type="button" class="btn text-success btn-sm" data-bs-toggle="modal" data-bs-target="#formModal">
                                         <svg style="width: 15px;height: 15px">
                                             <use xlink:href="{{ asset('theme/vendors/@coreui/icons/svg/free.svg#cil-plus') }}">

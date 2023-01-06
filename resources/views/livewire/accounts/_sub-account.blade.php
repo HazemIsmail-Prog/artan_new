@@ -1,8 +1,8 @@
 @foreach ($account->childs as $account)
     <tr>
-        <td style=" padding-left: {{ $account->level * 2 }}rem">{{ $account->name }}</td>
-        <td>{{ $account->usage ?? '' }}</td>
-        <td class="text-end">
+        <td nowrap style=" padding-left: {{ $account->level * 2 }}rem">{{ $account->name }}</td>
+        <td nowrap>{{ $account->usage ?? '' }}</td>
+        <td nowrap class="text-end">
             @if ($account->level != 4)
                 <button wire:click="showAccountModal(null,{{ $account->id }})" type="button" class="btn text-success btn-sm" data-bs-toggle="modal" data-bs-target="#formModal">
                     <svg style="width: 15px;height: 15px">
