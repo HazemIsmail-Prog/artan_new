@@ -28,12 +28,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/mfs',function(){
-    set_time_limit(60 * 2); //60 seconds * 2 = 2 minutes
-    Artisan::call('migrate:fresh --seed');
-    return redirect()->route('dashboard');
-});
-
 Route::group(['middleware' => 'auth'], function(){
 
     //Livewire
