@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             AccountSeeder::class,
             VehicleSeeder::class,
-            OrderSeeder::class,
+            // OrderSeeder::class,
             // VoucherSeeder::class,
             // VoucherDetailSeeder::class,
         ]);
