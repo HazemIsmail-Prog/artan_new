@@ -146,12 +146,20 @@
                                     @if ($voucher_type == 'jv')
                                         <button wire:click="duplicate_row({{ $index }})"
                                             class="text-center btn btn-sm text-success">
-                                            <i class="fas fa-clone"></i>
+                                        <svg style="width: 15px;height: 15px">
+                                            <use
+                                                xlink:href="{{ asset('theme/vendors/@coreui/icons/svg/free.svg#cil-copy') }}">
+                                            </use>
+                                        </svg>
                                         </button>
                                     @elseif ($index > 0)
                                         <button wire:click="duplicate_row({{ $index }})"
                                             class="text-center btn btn-sm text-success">
-                                            <i class="fas fa-clone"></i>
+                                        <svg style="width: 15px;height: 15px">
+                                            <use
+                                                xlink:href="{{ asset('theme/vendors/@coreui/icons/svg/free.svg#cil-copy') }}">
+                                            </use>
+                                        </svg>
                                         </button>
                                     @endif
                                     <button wire:click="delete_row({{ $index }})"
