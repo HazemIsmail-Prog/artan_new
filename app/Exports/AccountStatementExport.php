@@ -31,6 +31,7 @@ class AccountStatementExport implements FromView, WithTitle, ShouldAutoSize, Wit
 
     public function styles(Worksheet $sheet)
     {
+        $sheet->setAutoFilter('A1:H1');
         return [
             // Style the first row as bold text.
             // 1    => ['font' => ['bold' => true]],
