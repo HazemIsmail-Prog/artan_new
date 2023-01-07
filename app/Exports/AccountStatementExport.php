@@ -49,9 +49,9 @@ class AccountStatementExport implements FromView, WithTitle, ShouldAutoSize, Wit
     public function columnWidths(): array
     {
         return [
-            'E' => 16,
-            'F' => 16,
             'G' => 16,
+            'H' => 16,
+            'I' => 16,
         ];
     }
 }

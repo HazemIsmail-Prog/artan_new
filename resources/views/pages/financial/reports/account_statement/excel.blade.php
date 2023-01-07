@@ -17,7 +17,7 @@
         <td></td>
         <td></td>
         <td></td>
-        <th style="text-align:right;">Opening Balance :</th>
+        <th style="text-align:left;">Opening Balance</th>
         <th style="text-align:right;">{{ $opening_balance > 0 ? abs($opening_balance) : 0 }}</th>
         <th style="text-align:right;">{{ $opening_balance < 0 ? abs($opening_balance) : 0 }}</th>
         <th></th>
