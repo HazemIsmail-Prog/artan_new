@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label for="user.type">Type</label>
-                        <select wire:model="user.type" id="user.type" class="form-control @error('user.password') is-invalid @enderror">
+                        <select wire:model="user.type" id="user.type" class="form-control @error('user.type') is-invalid @enderror">
                             <option value="">---</option>
                             <option value="admin">Admin</option>
                             <option value="user">User</option>
