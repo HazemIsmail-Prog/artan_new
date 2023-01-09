@@ -40,6 +40,18 @@
                             class="small text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">
+                        <label for="user.type">Type</label>
+                        <select wire:model="user.type" id="user.type" class="form-control @error('user.password') is-invalid @enderror">
+                            <option value="">---</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                            <option value="accountant">Accountant</option>
+                            <option value="tech">Technician</option>
+                        </select>
+                        @error('user.type')<span
+                            class="small text-danger">{{ $message }}</span>@enderror
+                    </div>
+                    <div class="form-group">
                         <label for="user.active">Status</label>
                         <div class="form-check">
                             <input wire:model="user.active" class="form-check-input" type="checkbox" id="user.active"
