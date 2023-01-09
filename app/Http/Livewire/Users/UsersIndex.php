@@ -39,7 +39,7 @@ class UsersIndex extends Component
                 'name' => $this->user['name'],
                 'email' => $this->user['email'],
                 'active' => $this->user['active'],
-                'type' => 'user',
+                'type' => $this->user['type'],
             ]);
             if (isset($this->user['password'])) {
                 $currentUser->update([
