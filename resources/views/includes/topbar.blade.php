@@ -6,6 +6,8 @@
                 <use xlink:href="{{ asset('theme/vendors/@coreui/icons/svg/free.svg#cil-menu') }}"></use>
             </svg>
         </button>
+
+        <img src="{{ asset('custom/logo.png') }}" alt="" style="width: 100px">
         {{-- <ul class="header-nav ms-auto">
             <li class="nav-item">
                 <a class="nav-link" href="#">
