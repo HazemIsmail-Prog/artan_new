@@ -13,7 +13,7 @@ class OrderIndex extends Component
 
     public $search = '';
     public $dateFilter = 'all';
-    public $paymentFilter = 'all';
+    public $paymentFilter = 'unpaid';
 
     protected $paginationTheme = 'bootstrap';
 
