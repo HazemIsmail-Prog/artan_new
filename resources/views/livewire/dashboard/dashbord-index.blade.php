@@ -12,24 +12,14 @@
                     @endif
 
                     <div class="row">
+                        @foreach ($widgets as $key=>$value)
                         <div class="col-md-4 mb-2">
                             <div class="card">
-                                <div class="card-header">Total Income</div>
-                                <div class="card-body">{{ number_format($totalIncome,3) }}</div>
+                                <div class="card-header">{{ $key }}</div>
+                                <div class="card-body">{{ number_format($value,3) }}</div>
                             </div>
                         </div>
-                        <div class="col-md-4 mb-2">
-                            <div class="card">
-                                <div class="card-header">Bank Balance</div>
-                                <div class="card-body">{{ number_format($bankBalance,3) }}</div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-2">
-                            <div class="card">
-                                <div class="card-header">Cash on Hand</div>
-                                <div class="card-body">{{ number_format($cashOnHandBalance,3) }}</div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

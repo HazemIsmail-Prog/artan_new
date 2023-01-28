@@ -8,14 +8,13 @@ use Livewire\Component;
 
 class DashbordIndex extends Component
 {
-    public $totalIncome;
-    public $bankBalance;
-    public $cashOnHandBalance;
+    public $widgets = [];
+
     public function mount()
     {
-        $this->totalIncome = Payment::sum('amount');
-        $this->bankBalance = Account::find(112001)->balance;
-        $this->cashOnHandBalance = Account::find(111027)->balance;
+        $this->widgets['Total Income'] = Payment::sum('amount');
+        $this->widgets['Bank Balance'] = Account::find(112001)->balance;
+        $this->widgets['Cash on Hand'] = Account::find(111027)->balance;
     }
     public function render()
     {
