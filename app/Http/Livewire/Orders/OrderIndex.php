@@ -52,7 +52,8 @@ class OrderIndex extends Component
             Order::query()
             ->with('user')
             ->with('payments.user')
-            ->orderBy('order_datetime')
+            // ->orderByDesc('order_datetime')
+            ->orderByDesc('id')
             ->when($this->search, function ($q) {
                 $q->where(function($q){
                     $q->where('c_name', 'like', '%' . $this->search . '%');
