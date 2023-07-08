@@ -48,6 +48,8 @@ class AccountStatementController extends Controller
                 $mpdf->SetHTMLHeader($header);
                 $mpdf->SetHTMLFooter($footer);
                 
+                ini_set("pcre.backtrack_limit", "5000000");
+
                 $mpdf->WriteHTML($body); //should be before output directly
                 $mpdf->Output();
                 break;
