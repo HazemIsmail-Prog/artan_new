@@ -9,7 +9,6 @@ use App\Models\Account;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
-use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class AccountStatementController extends Controller
 {
@@ -34,9 +33,23 @@ class AccountStatementController extends Controller
         $accounts = Helper::GetAccountStatementReportData($request);
         switch ($request->action) {
             case 'pdf':
-                $pdf = PDF::loadView('pages.financial.reports.account_statement.pdf', compact('accounts', 'page_title'));
-                $pdf->setPaper('a4', 'portrait'); // [landscape, portrait]
-                return $pdf->stream($page_title . '.pdf');
+                $mpdf = new \Mpdf\Mpdf([
+                    // 'pagenumPrefix' => 'Page number ',
+                    // 'pagenumSuffix' => ' - ',
+                    'nbpgPrefix' => ' of ',
+                    'nbpgSuffix' => ' pages',
+                    'margin_top' => 25,
+                    'margin_bottom' => 15,
+                ]);
+
+                $body = view('pages.financial.reports.account_statement.pdf.body', compact('accounts'));
+                $header = view('pages.financial.reports.account_statement.pdf.header', compact('page_title'));
+                $footer = view('pages.financial.reports.account_statement.pdf.footer');
+                $mpdf->SetHTMLHeader($header);
+                $mpdf->SetHTMLFooter($footer);
+                
+                $mpdf->WriteHTML($body); //should be before output directly
+                $mpdf->Output();
                 break;
             case 'excel':
                 return Excel::download(new AccountStatementExport($accounts), $page_title . '.xlsx');  //Excel
